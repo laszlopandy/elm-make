@@ -67,7 +67,7 @@ generate cachePath dependencies natives moduleIDs outputFile =
 
 header :: Text.Text
 header =
-    "var Elm = Elm || { Native: {} };"
+    "var Elm = ((typeof module !== 'undefined' && module.exports) ? module.exports : this)['Elm'] = { Native: {} }; "
 
 
 errorNotOneModule :: [ModuleID] -> String
